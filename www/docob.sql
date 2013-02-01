@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 27 2013 г., 21:15
+-- Время создания: Фев 01 2013 г., 15:43
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -19,25 +19,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `docob`
 --
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `tbl_item`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_item` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `document` varchar(250) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Дамп данных таблицы `tbl_item`
---
-
-INSERT INTO `tbl_item` (`id`, `document`) VALUES
-(1, '');
 
 -- --------------------------------------------------------
 
@@ -59,10 +40,10 @@ CREATE TABLE IF NOT EXISTS `tbl_lookup` (
 --
 
 INSERT INTO `tbl_lookup` (`id`, `name`, `code`, `type`, `position`) VALUES
-(1, 'Draft', 1, 'PostStatus', 1),
-(2, 'Discussed', 2, 'PostStatus', 2),
-(3, 'Familiarizing', 3, 'PostStatus', 3),
-(4, 'Archived', 4, 'PostStatus', 4);
+(1, 'Черновик', 1, 'PostStatus', 1),
+(2, 'Обсуждение', 2, 'PostStatus', 2),
+(3, 'Ознакомление', 3, 'PostStatus', 3),
+(4, 'Архив', 4, 'PostStatus', 4);
 
 -- --------------------------------------------------------
 
@@ -78,18 +59,11 @@ CREATE TABLE IF NOT EXISTS `tbl_post` (
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) DEFAULT NULL,
   `author_id` int(11) NOT NULL,
+  `document` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `dostup` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_post_author` (`author_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
-
---
--- Дамп данных таблицы `tbl_post`
---
-
-INSERT INTO `tbl_post` (`id`, `title`, `content`, `status`, `create_time`, `update_time`, `author_id`) VALUES
-(1, 'Welcome!', 'This blog system is developed using Yii. It is meant to demonstrate how to use Yii to build a complete real-world application. Complete source code may be found in the Yii releases.\r\n\r\nFeel free to try this system by writing new posts and posting comments.', 2, 1230952187, 1359304450, 1),
-(2, 'A Test Post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 2, 1230952187, 1230952187, 1),
-(3, '1232', '213424354546', 3, 1359298778, 1359304417, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -111,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `username`, `password`, `email`, `profile`) VALUES
-(1, 'demo', '$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC', 'webmaster@example.com', NULL),
+(1, 'demo', '$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC', 'webmaster@example.com', '1232123123132132'),
 (3, 'admin', 'admin', 'admin@mail.ru', ''),
 (4, '123', '123', '123@mail.ru', '');
 

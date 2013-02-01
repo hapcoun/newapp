@@ -1,0 +1,11 @@
+iso-8859-1
+
+
+cp1251
+
+
+
+http://habrahabr.ru/post/156293/
+
+
+http://yiiframework.ru/forum/viewtopic.php?f=3&t=6974

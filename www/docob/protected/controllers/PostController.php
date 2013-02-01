@@ -72,10 +72,10 @@ class PostController extends Controller
 		if(isset($_POST['Post']))
 		{
 			$model->attributes=$_POST['Post'];
-                    //  $model->document=CUploadedFile::getInstance($model,'document');
+                $model->document=CUploadedFile::getInstance($model,'document');
             if($model->save())
             {
-               // $model->document->saveAs('Z:/home/newapp/www/docob/protected/upload/'.$model->id.'_'.$model->document);
+                $model->document->saveAs(Yii::app()->basePath.'/upload/'.$model->id.'_'.mb_convert_encoding($model->document,  "CP-1251", "UTF-8" ));
                 $this->redirect(array('view','id'=>$model->id));
             }
 		}
@@ -101,9 +101,9 @@ class PostController extends Controller
             if(isset($_POST['Post']))
             {
                 $model->attributes=$_POST['Post'];
-                // $model->document=CUploadedFile::getInstance($model,'document');
+                    $model->document=CUploadedFile::getInstance($model,'document');
                 if($model->save())
-                    //   $model->document->saveAs('Z:/home/newapp/www/docob/protected/upload/'.$model->id.'_'.$model->document);
+                    $model->document->saveAs(Yii::app()->basePath.'/upload/'.$model->id.'_'.mb_convert_encoding($model->document,  "CP-1251", "UTF-8" ));
                     $this->redirect(array('view','id'=>$model->id));
                 $this->refresh();
 

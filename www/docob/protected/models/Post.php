@@ -130,20 +130,21 @@ class Post extends CActiveRecord
     {
         if(parent::beforeSave())
         {
-            if(($this->isNewRecord) && ($document=CUploadedFile::getInstance($this,'document')))
+            if($this->isNewRecord)// && ($document=CUploadedFile::getInstance($this,'document')))
             {
                 $this->dostup=Yii::app()->user->id.','.implode(',', $this->dostup);
                 $this->create_time=$this->update_time=time();
                 $this->author_id=Yii::app()->user->id;
-                $this->document=$document;
-                $this->document->saveAs('Z:/home/newapp/www/docob/protected/upload/'.$this->create_time.'_'.mb_convert_encoding($this->document, "CP-1251", "UTF-8"));
+                //$this->document=$document;
+                //$this->document->saveAs(Yii::app()->basePath.'/upload/'.$this->create_time.'_'.mb_convert_encoding($this->document, "CP-1251", "UTF-8"));
             }
             else
             {
                 $this->dostup=Yii::app()->user->id.','.implode(',', $this->dostup);
                 $this->update_time=time();
-                $this->document=$document;
-                $this->document->saveAs('Z:/home/newapp/www/docob/protected/upload/'.$this->create_time.'_'.mb_convert_encoding($this->document,  "CP-1251", "UTF-8" ));
+                //$this->deleteDocument();
+                //$this->document=$document;
+                //$this->document->saveAs(Yii::app()->basePath.'/upload/'.$this->create_time.'_'.mb_convert_encoding($this->document,  "CP-1251", "UTF-8" ));
             }
             return true;
         }
@@ -159,7 +160,7 @@ class Post extends CActiveRecord
     }
 
     public function deleteDocument(){
-        $documentPath='Z:/home/newapp/www/docob/protected/upload/'.$this->create_time.'_'.$this->document;
+        $documentPath=Yii::app()->basePath.'/upload/'.$this->id.'_'.mb_convert_encoding($this->document,  "CP-1251", "UTF-8" );
         if(is_file($documentPath))
             unlink($documentPath);
     }
