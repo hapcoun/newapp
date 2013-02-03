@@ -10,6 +10,6 @@ $this->breadcrumbs=array(
 
 <p>Инструменты управления:)</p>
 <ul>
-    <?php echo CHtml::link("Документация", Yii::app()->request->baseUrl.'/index.php?r=post/admin')?>
-    <?php echo CHtml::link("Пользователи", Yii::app()->request->baseUrl.'/index.php?r=user/admin')?>
+    <li><?php echo CHtml::link("Документация", Yii::app()->request->baseUrl.'/index.php?r=post/admin')?></li>
+    <li><?php echo CHtml::link("Пользователи", Yii::app()->request->baseUrl.'/index.php?r=user/admin')?></li>
 </ul>
