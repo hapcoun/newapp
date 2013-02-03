@@ -47,7 +47,7 @@ echo CHtml::encode($record->username); ?>
             'label'=>'Документ',
             'name'=>'document',
             'type'=>'raw',
-            'value'=>CHtml::link("Скачать", Yii::app()->request->baseUrl.'/protected/upload/'.$model->create_time.'_'. $model->document)
+            'value'=>CHtml::link("Скачать", Yii::app()->request->baseUrl.'/protected/upload/'.$model->id .'_'. $model->document)
         ),
 
     ),

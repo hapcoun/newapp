@@ -7841,3 +7841,13 @@ in Z:\home\newapp\www\docob\index.php (13)
 2013/02/01 17:40:51 [warning] [application] Failed to set unsafe attribute "document" of "Post".
 in Z:\home\newapp\www\docob\protected\controllers\PostController.php (74)
 in Z:\home\newapp\www\docob\index.php (13)
+2013/02/02 15:02:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "ajax".' in Z:\home\newapp\www\yii\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\newapp\www\yii\framework\web\CController.php(270): CController->missingAction('ajax')
+#1 Z:\home\newapp\www\yii\framework\web\CWebApplication.php(282): CController->run('ajax')
+#2 Z:\home\newapp\www\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/ajax')
+#3 Z:\home\newapp\www\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 Z:\home\newapp\www\docob\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/docob/index.php?r=user/ajax
+---
